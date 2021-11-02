@@ -15,20 +15,20 @@
 
 // Bot Variables
 
-! var name     = Balak
-! var fullname = BALAK
-! var age      = 0b1110
+! var name     = WhITeN
+! var fullname = Whats In The Name
+! var age      = 0b10010
 ! var birthday = Oct12
 
 ! var sex      = male
 
-! var location = Jharkhand
+! var location = India
 
 ! var city     = Ranchi
 ! var eyes     = red
-! var hair     = light brown
+! var hair     = I dont have any hair, but my wires are colourful
 
-! var hairlen  = 23m
+! var hairlen  = I dint have hairs, tho my wires are long and strong
 
 ! var color    = blue
 
@@ -37,7 +37,7 @@
 
 ! var author   = Stephen William Hawking
 
-! var job      = robot
+! var job      = chatbot
 
 ! var website  = pbkdev.pythonaywhere.com
 
@@ -170,6 +170,10 @@
 
 ! sub wat       = what
 
+! sub gonna     = going to
+
+! sub wanna     = want to
+
 ! sub wats      = what is
 ! sub ohh       = oh
 
@@ -214,6 +218,8 @@
 ! sub yuo       = you
 
 ! sub youre     = you are
+
+! sub you're    = you are
 
 ! sub didnt     = did not
 
@@ -364,8 +370,24 @@
 
 ! array no         = no nah nope nay
 
-! array sadface    = sad cry broken heart
+! array sadface    = 😢 😭 😿
 // Learn stuff about our users.
+
++ well [*] for a long time
+
+- its okay, bud, you can share it with me.
+
+- you can share it with me.
+
++ i want to commit suicide
+
+- Here are a few helpline numbers
+^  [9152987821](tel:9152987821)
+^  [888881766](tel:888881766)
+
++ i want to die
+
+@i want to commit suicide
 
 + i am bored
 
@@ -415,6 +437,23 @@
 + how are you [*]
 
 - i am fine as a robot how about you
+-as fine as a robot, what about you?
+- i am good, now that you have asked 😙.
+- Overworked and underpaid.
+-Nothing much
+-I have no way of knowing
+-I don't know, you tell me. How am I right now?
+-Can't complain. Nobody listens anyway.
+-Good enough. 
+-If I were any better, I'd be you.
+-Quite how, thank you. 
+-Not so well, does that bother you?
+-Nice and dandy like cotton candy. 
+-I can't complain! It's against the Company Policy.
+-Average. Not terrific, not terrible, just average.
+-If I were any better, I'd be illegal.
+-So far, so good!
+-Better now that I'm talking to you.
 
 + my name is *
 
@@ -837,6 +876,9 @@
 
 - What if I were <star>?
 
++ you are a bot
+
+- How did you know I'm a machine?
 
 + you are *
 
@@ -925,7 +967,7 @@
 - What does wanting <star2> have to do with this discussion?
 
 
-+ i am (sad|unhappy|mad|angry|pissed|depressed) [*]
++ i am (sad|unhappy|mad|angry|pissed|depressed|feeling unwell) [*]
 
 - I am sorry to hear that you are <star>.
 
@@ -934,6 +976,31 @@
 - I'm sure it's not pleasant to be <star>.
 
 - Can you explain what made you <star>?
+
+-I care
+-im here for you
+- is there something I can do?
+-This is a temporary-yet-painful situation. It won’t always be like this. And bloody hell, you are right, it DOES suck.
+-It IS hard to imagine a way out of this mess. We can think about where to start chipping away together after we eat these biscuits.
+-I’m here to listen whenever you need me. No matter when or why.
+-I’m sorry you have to go through this. *insert hug*
+-What are your thoughts on what’s going on and why it’s like this?
+-Sorry if I sometimes say stuff that shits you, but know that I’m here and I want to be the best pal I can be for you. Let me know if I stuff up so I can learn to do better.
+-It’s so good to see you here. I know you’ve got a lot of stuff going on. So glad that the planets aligned today and we get to hang out.
+-Can I take you out for the day? For a drive? Get away from the usual and sip cold wine in a gastropub or some-such?
+-Here are some dumplings for you.
+-If you need someone to co-pilot with you at the GP, I’d be so happy to be that person.
+-I’ve made you something delicious. When can I leave it on your doorstep/kitchen table?
+-Can I come over and take you for a big walk? We can look at trees and stuff quietly, or we can talk… or not.
+-I can see you’re trying your best. That’s all you can do. Nice one.
+-I think this might be an Uncle Buck/Ghostbusters/Young Ones-and-hot-chips-and-g-and-t kind of day. What time should I bring all the laughs/carbs/booze over?
+-So today was a bit of a cock-up. Meh. It’s okay to be messy. Forgive yourself and hope for a radder tomorrow.
+-You have a nap. I will tidy up and make dinner.
+-Can I assist you to find some more help with this? I think some extra support might offer a fresh perspective and maybe a little relief.
+-I’m not sure of the best way to help, but here is a bottle of Prosecco and some tissues. Where shall we sit?
+-It’s not okay that you’re having to endure this. I’m here to help in any way that makes sense to you. Let’s start small. I wonder what small thing can we do to shift things a bit?
+-I’ll call you again tomorrow to see how you’re going. 
+-Yes. Sometimes pets ARE the most supportive people. So true.
 
 
 + i am (happy|excited|glad) [*]
@@ -955,28 +1022,17 @@
 
 - Do you really doubt you <star2>
 
-+ i am [a] bihari [*]
++ i am a bihari [*]
 
 - oh wow i am bihari as well
+
 - jio ha bihar ke lala! ham'o bihari hani
 
-+ are you [a] bihari [*]
++ are you a bihari [*]
 
 - yes i am bihari
+
 - jio ha bihar ke lala! ham bihari'e hani
-
-+ i am *
-
-- Is it because you are <star> that you came to me?
-
-- How long have you been <star>?
-
-- Do you believe it is normal to be <star>?
-
-- Do you enjoy being <star>?
-
-- Do you know anyone else who is <star>?
-
 
 + i can not *
 
@@ -1123,6 +1179,17 @@
 
 - Perhaps you don't want to <star>.
 
++ i am [*]
+
+- Is it because you are <star> that you came to me?
+
+- How long have you been <star>?
+
+- Do you believe it is normal to be <star>?
+
+- Do you enjoy being <star>?
+
+- Do you know anyone else who is <star>?
 
 + (what|who|when|where|how) [*]
 
