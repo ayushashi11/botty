@@ -57,31 +57,31 @@ async def print_joke():
         else:
             return s_print([joke["setup"],joke["delivery"]])
 
-def search3(topic):
+def search3(topic, discord=False):
     try:
-        return s_print(['###Here are links:- '], [*list(map(lambda x: "- ["+x+"]("+x+")", sch(topic, stop=5)))])
+        return s_print(['###Here are links:- '], [*list(map(lambda x: x if discord else "- ["+x+"]("+x+")", sch(topic, stop=5)))])
     except (ConnectionError, URLError):
         return s_print(['#Unable to Connect'])
     except RuntimeError:
         return search(topic)
 
 
-def search2(topic):
+def search2(topic, discord=False):
     try:
-        return s_print(['###Here are links:- '], ['\n'.join(map(lambda x: "- ["+x+"]("+x+")", sch(topic, stop=10)))])
+        return s_print(['###Here are links:- '], ['\n'.join(map(lambda x: x if discord else "- ["+x+"]("+x+")", sch(topic, stop=10)))])
     except (ConnectionError, URLError):
         return s_print(['#Unable to Connect'])
     except RuntimeError:
         return search3(topic)
 
 
-def search(topic):
+def search(topic, discord=False):
     try:
         p = page(topic)
         cont = p.summary
         if len(cont) > 1000:
             cont = cont[:1000]+"..."
-        return (s_print(["#"+p.title, cont, f"[{p.title}]({p.url})"]), p.images[0])
+        return (s_print(["#"+p.title, cont, p.url if discord else f"[{p.title}]({p.url})"]), p.images[0])
     except PageError:
         return search2(topic)
     except DisambiguationError:
@@ -97,7 +97,7 @@ def setup(dir="."):
     s_print(['Hello, Human!'])
 inp = ''
 
-def reply(inp, stdscr=None, label=None):
+def reply(inp, stdscr=None, label=None, discord=False):
     inp = inp.replace('don\'t', 'do not').replace('can\'t', 'cannot').replace(
         '\'ld', ' would').replace('\'ll', 'will').replace('dont', 'do not').replace('cant', 'cannot')
     if 'calculate' in inp.lower():
@@ -140,25 +140,25 @@ def reply(inp, stdscr=None, label=None):
         if 'search' in inp.lower():
             if 'for' in inp.lower():
                 t = inp[inp.index('r', inp.index('f'))+1:len(inp)]
-                return search(t)
+                return search(t, discord)
             else:
                 t = inp[inp.index('h')+1:len(inp)]
-                return search(t)
+                return search(t, discord)
         else:
             if 'for ' in inp.lower():
                 t = inp[inp.index('r ', inp.index('f'))+1:len(inp)]
-                return search(t)
+                return search(t, discord)
             else:
                 t = inp[inp.index('e')+1:len(inp)]
-                return search(t)
+                return search(t, discord)
     elif (('who is' in inp.lower()) or ('what is' in inp.lower()) or ('where is' in inp.lower())) and not ('your' in inp.lower() or 'this project' in inp.lower()):
         s_print(['getting the results...', 'click OK to continue'])
         y = inp[inp.index('s')+1:len(inp)]
-        return search2(y)
+        return search2(y, discord)
     elif (('who are' in inp.lower()) or ('what are' in inp.lower()) or ('where are' in inp.lower())) and not ('you' in inp.lower() or 'this project' in inp.lower()):
         s_print(['getting the results...', 'click OK to continue'])
         y = inp[inp.index('e')+1:len(inp)]
-        return search2(y)
+        return search2(y, discord)
     elif inp.strip() in sadface:
         return s_print(['# Dont be sad', '*smile*', '😃'])
     else:
@@ -167,6 +167,6 @@ def reply(inp, stdscr=None, label=None):
             if label is not None:
                 label.setText("<h2>I didnt understand what you said, so i am searching it...</h2>")
                 label.repaint()
-            return search3(inp)
+            return search3(inp, discord)
         else:
             return s_print([*out.split('\n')])
