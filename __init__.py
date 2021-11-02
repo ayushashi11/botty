@@ -83,11 +83,11 @@ def search(topic, discord=False):
             cont = cont[:1000]+"..."
         return (s_print(["#"+p.title, cont, p.url if discord else f"[{p.title}]({p.url})"]), p.images[0])
     except PageError:
-        return search2(topic)
+        return search2(topic, discord)
     except DisambiguationError:
-        return search2(topic)
+        return search2(topic, discord)
     except ConnectionError:
-        return search2(topic)
+        return search2(topic, discord)
 
 x = rs.RiveScript(True, log=".txt")
 def setup(dir="."):
