@@ -6,7 +6,7 @@ from os import getcwd, system, scandir
 from urllib.error import *
 from requests.exceptions import *
 from googlesearch import search as sch
-import os
+import pathlib
 from pyowm import *
 from time import *
 from random import randint
@@ -14,7 +14,6 @@ from math import *
 import rivescript as rs
 __author__ = ["Prabhakar Dev"]
 input_text = input
-print('importing modules..')
 #from intent import *
 #from prompt_toolkit.shortcuts import input_dialog,message_dialog as pop
 #from wx import App,GetTextFromUser
@@ -24,19 +23,10 @@ print('importing modules..')
 #from blog.settings import BASE_DIR
 #from dotenv import load_dotenv
 #from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-try:
-    # import recog                         #comment this line for text input
-    input = recog.predict
-except BaseException as e:
-    print(e.args)
-print('setting up...')
 
 # owm=OWM(key)
 # owm=owm.weather_manager()
 sadface = "😔 😟 ☹ 🥺 😢 😭 😞 😣 😖 😓 😩 😫".split()
-# speak=speech.setup_speech()
-
-system('@echo off')
 
 
 def degrees(temp):
@@ -91,14 +81,13 @@ def search(topic):
     except ConnectionError:
         return search2(topic)
 
-
 x = rs.RiveScript(True, log=".txt")
-# a=App()
-code = open('assistant/ai2.rive','rb')
-x.stream(code.read().decode('utf-8'))
-x.sort_replies()
+def setup(dir="."):
+    code = open(pathlib.Path(dir).joinpath('ai2.rive'),'rb')
+    x.stream(code.read().decode('utf-8'))
+    x.sort_replies()
+    s_print(['Hello, Human!'])
 inp = ''
-s_print(['Hello, Human!'])
 
 
 def reply(inp, stdscr=None):
