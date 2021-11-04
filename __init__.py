@@ -90,11 +90,14 @@ def search(topic, discord=False):
         return search2(topic, discord)
 
 x = rs.RiveScript(True, log=".txt")
-def setup(dir="."):
+owm = None
+def setup(dir=".", key=None):
     code = open(pathlib.Path(dir).joinpath('ai2.rive'),'rb')
     x.stream(code.read().decode('utf-8'))
     x.sort_replies()
     s_print(['Hello, Human!'])
+    if key:
+        owm = OWM(key)
 inp = ''
 
 def reply(inp, stdscr=None, label=None, discord=False):
